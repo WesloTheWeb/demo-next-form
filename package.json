@@ -1,5 +1,5 @@
 {
-  "name": "demo-2-next",
+  "name": "mutation",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "cloudinary": "^2.0.2",
+    "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.6"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.6"
+    "@types/node": "22.5.0",
+    "@types/react": "18.3.4",
+    "sass": "^1.77.8",
+    "typescript": "5.5.4"
   }
 }

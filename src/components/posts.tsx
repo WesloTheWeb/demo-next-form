@@ -2,6 +2,7 @@ import { formatDate } from '@/lib/format';
 import LikeButton from './like-icon';
 
 function Post({ post }) {
+
   return (
     <article className="post">
       <div className="post-image">
@@ -29,9 +30,10 @@ function Post({ post }) {
 }
 
 export default function Posts({ posts }) {
+
   if (!posts || posts.length === 0) {
     return <p>There are no posts yet. Maybe start sharing some?</p>;
-  }
+  };
 
   return (
     <ul className="posts">

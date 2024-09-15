@@ -4,7 +4,7 @@ import PostForm from '@/components/postForm';
 
 export default function NewPostPage() {
 
-  async function createPost(state: { errors?: string[] } | undefined, formData: FormData): Promise<{ errors?: string[] } | undefined> {
+  async function createPost(_state: { errors?: string[] } | undefined, formData: FormData): Promise<{ errors?: string[] } | undefined> {
     "use server";
     const title = formData.get('title') as string | null;
     const image = formData.get('image') as File | null;

@@ -1,11 +1,7 @@
 'use client';
 
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
 import FormSubmit from '@/components/Form-Submit';
-
-// type CreatePostAction = (
-//     formData: FormData
-// ) => Promise<{ errors: string[] } | void>;
 
 type ActionState = { errors?: string[] } | undefined;
 
@@ -16,14 +12,12 @@ type CreatePostAction = (
 
 interface actionProps {
     action: CreatePostAction;
+    prevState?: ActionState;
 };
 
 const PostForm = ({ action }: actionProps) => {
 
-    const [state, formAction] = useActionState<ActionState, FormData>(
-        action,
-        undefined
-    );
+    const [state, formAction] = useFormState(action, undefined);
 
     return (
         <>
@@ -50,6 +44,13 @@ const PostForm = ({ action }: actionProps) => {
                     <FormSubmit />
                 </p>
             </form>
+            {state && state.errors && <ul className="form-errors">
+                {state?.errors.map((error) => {
+                    return (
+                        <li key={error}>{error}</li>
+                    )
+                })}
+            </ul>}
         </>
     )
 };

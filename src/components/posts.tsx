@@ -12,12 +12,12 @@ function Post({ post }) {
         <header>
           <div>
             <h2>{post.title}</h2>
-            <p>
+            <div>
               Shared by {post.userFirstName} on{' '}
               <time dateTime={post.createdAt}>
                 {formatDate(post.createdAt)}
               </time>
-            </p>
+            </div>
           </div>
           <div>
             <LikeButton />

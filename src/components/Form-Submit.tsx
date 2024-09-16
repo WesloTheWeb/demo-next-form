@@ -7,13 +7,13 @@ const FormSubmit = () => {
     console.log(`[FormSubmit] status hook details`, status);
 
     if (status.pending) {
-        return <p>Creating post...</p>;
+        return <div>Creating post...</div>;
     }
 
     return (
         <>
             <button type="reset">Reset</button>
-            <button>Create Post</button>
+            <button type="submit">Create Post</button>
         </>
     )
 };

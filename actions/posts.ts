@@ -1,6 +1,6 @@
 "use server";
 import { redirect } from 'next/navigation';
-import { storePost } from '@/lib/posts';
+import { storePost, updatePostLikeStatus } from '@/lib/posts';
 import { uploadImage } from '@/lib/cloudinary';
 
 export async function createPost(_state: { errors?: string[] } | undefined, formData: FormData): Promise<{ errors?: string[] } | undefined> {
@@ -45,4 +45,9 @@ export async function createPost(_state: { errors?: string[] } | undefined, form
   });
 
   redirect('/feed');
+};
+
+export async function togglePostLikeStatus(postId) {
+  updatePostLikeStatus(postId, 2);
+  // hard coded userId to 2 for now.
 };

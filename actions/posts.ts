@@ -2,6 +2,7 @@
 import { redirect } from 'next/navigation';
 import { storePost, updatePostLikeStatus } from '@/lib/posts';
 import { uploadImage } from '@/lib/cloudinary';
+import { revalidatePath } from 'next/cache';
 
 export async function createPost(_state: { errors?: string[] } | undefined, formData: FormData): Promise<{ errors?: string[] } | undefined> {
   const title = formData.get('title') as string | null;
@@ -44,10 +45,12 @@ export async function createPost(_state: { errors?: string[] } | undefined, form
     userId: 1
   });
 
+  revalidatePath('/', 'layout');
   redirect('/feed');
 };
 
 export async function togglePostLikeStatus(postId) {
   updatePostLikeStatus(postId, 2);
   // hard coded userId to 2 for now.
+  revalidatePath('/', 'layout');
 };

@@ -1,3 +1,6 @@
+'use client';
+
+import { useOptimistic } from 'react';
 import { formatDate } from '@/lib/format';
 import LikeButton from './like-icon';
 import { togglePostLikeStatus } from '../../actions/posts';
@@ -35,6 +38,10 @@ function Post({ post }) {
 }
 
 export default function Posts({ posts }) {
+
+  const [optimisticPost, updateOptimisticPost] = useOptimistic(posts, (prevPost, updatedPostId) => {
+
+  })
 
   if (!posts || posts.length === 0) {
     return <p>There are no posts yet. Maybe start sharing some?</p>;
